@@ -1,43 +1,46 @@
 <idea-plugin version="2">
-  <id>com.zafarella.randoop.intellij</id>
-  <name>randoop junit test generator</name>
-  <version>1.0</version>
-  <vendor email="zafar@linux.com" url="http://www.zafarella.com">zafarella</vendor>
+    <id>com.zafarella.randoop.intellij</id>
+    <name>randoop based junit test generator</name>
+    <version>1.0</version>
+    <vendor email="zafar@linux.com" url="http://www.zafarella.com">zafarella</vendor>
 
-  <description><![CDATA[
+    <description><![CDATA[
       <em>This plug-in will enable automatic unit test (junit) generation for java code.</em> <br>
       The plug-in for IntelliJ to generate unit test based on randoop. Learn more about randoop at
       http://mernst.github.io/randoop/.
     ]]></description>
 
-  <change-notes><![CDATA[
+    <change-notes><![CDATA[
       Initial version with simple running concept.<br>
     ]]>
-  </change-notes>
+    </change-notes>
 
-  <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
-  <idea-version since-build="131"/>
+    <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
+    <idea-version since-build="131"/>
 
-  <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
-       on how to target different products -->
-  <!-- uncomment to enable plugin in all products
-  <depends>com.intellij.modules.lang</depends>
-  -->
+    <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
 
-  <extensions defaultExtensionNs="com.intellij">
-    <!-- Add your extensions here -->
-  </extensions>
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
 
-  <application-components>
-    <!-- Add your application components here -->
-  </application-components>
+    <application-components>
+        <!-- Add your application components here -->
+    </application-components>
 
-  <project-components>
-    <!-- Add your project components here -->
-  </project-components>
+    <project-components>
+        <!-- Add your project components here -->
+    </project-components>
 
-  <actions>
-    <!-- Add your actions here -->
-  </actions>
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+
+    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.java</depends>
 
 </idea-plugin>
