@@ -1,0 +1,57 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+targetCompatibility = 1.6
+sourceCompatibility = 1.6
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'org.testng:testng:6.8.7'
+}
+
+idea {
+    project.ipr.beforeMerged { project ->
+        project.modulePaths.clear()
+    }
+
+    workspace.iws.withXml {
+        def runManagerComponent = it.node.component.find {
+            it.@name == 'RunManager'
+        }
+        runManagerComponent.@selected = 'Plugin.run-randoop-plugin'
+        def configuration = runManagerComponent.appendNode("configuration", [
+                default    : "false",
+                name       : "run-randoop-plugin",
+                type       : "#org.jetbrains.idea.devkit.run.PluginConfigurationType",
+                factoryName: "Plugin",
+                singleton  : "true"
+        ])
+        configuration.appendNode("module", [name: 'randoop-intellij-plugin'])
+        configuration.appendNode("option", [
+                name : "VM_PARAMETERS",
+                value: "-Xms128m -Xmx750m -XX:MaxPermSize=350m -XX:ReservedCodeCacheSize=96m -ea -Dawt.useSystemAAFontSettings=on"
+        ])
+        configuration.appendNode("option", [name: "PROGRAM_PARAMETERS", value: ""])
+        configuration.appendNode("method")
+    }
+
+    module.iml.withXml {
+        it.node.@type = 'PLUGIN_MODULE'
+        it.node.appendNode('component', [
+                name: 'DevKit.ModuleBuildProperties',
+                url : 'file://$MODULE_DIR$/src/main/resources/META-INF/plugin.xml'
+        ])
+    }
+
+    // this is a workaround:
+    // build into resources folder; otherwise resources are not available at runtime and in deployment build
+    module {
+        inheritOutputDirs = false
+        outputDir = file('build/resources/main')
+        testOutputDir = file('build/resources/main')
+    }
+}
