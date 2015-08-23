@@ -1,14 +1,15 @@
 <idea-plugin version="2">
     <id>com.zafarella.randoop.intellij</id>
-    <name>randoop based junit test generator</name>
+    <name>Randoop based junit test generator</name>
     <version>1.0</version>
     <vendor email="zafar@linux.com" url="http://www.zafarella.com">zafarella</vendor>
 
     <description><![CDATA[
       <em>This plug-in will enable automatic unit test (junit) generation for java code.</em> <br>
       The plug-in for IntelliJ to generate unit test based on randoop. Learn more about randoop at
-      http://mernst.github.io/randoop/.
-    ]]></description>
+      <a href="http://mernst.github.io/randoop/">http://mernst.github.io/randoop/</a>.
+    ]]>
+    </description>
 
     <change-notes><![CDATA[
       Initial version with simple running concept.<br>
