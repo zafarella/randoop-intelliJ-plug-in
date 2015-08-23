@@ -37,7 +37,11 @@
     </project-components>
 
     <actions>
-        <!-- Add your actions here -->
+        <action id="Randoop.JavaClassContexMenu" class="com.zafarella.intellij.plugin.randoop.RandoopContextMenu"
+                text="Generate test cases using Randoop"
+                description="Will fire up randoop to generate tests for this class.">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+        </action>
     </actions>
 
     <depends>com.intellij.modules.lang</depends>
